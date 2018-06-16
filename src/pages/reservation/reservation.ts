@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import {Validators, FormBuilder, FormGroup } from '@angular/forms';
 
 
 /**
@@ -16,8 +17,22 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
 })
 export class ReservationPage {
 
+  reservation: FormGroup;
+
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    public viewCtrl: ViewController) {
+    public viewCtrl: ViewController,
+    private formBuilder: FormBuilder ) {
+
+      this.reservation = this.formBuilder.group({
+        guests: 3,
+        smoking: false,
+        dateTime: ['', Validators.required],
+      });
+  }
+
+  onSubmit() {
+    console.log(this.reservation.value);
+    this.viewCtrl.dismiss();
   }
   dismiss() {
     this.viewCtrl.dismiss();
