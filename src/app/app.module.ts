@@ -19,6 +19,7 @@ import { baseURL } from '../shared/baseurl';
 import { DishdetailPage } from '../pages/dishdetail/dishdetail';
 import { FavoriteProvider } from '../providers/favorite/favorite';
 import { FavoritesPage } from '../pages/favorites/favorites';
+import { ReservationPage } from '../pages/Reservation/reservation';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { FavoritesPage } from '../pages/favorites/favorites';
     MenuPage,
     ContactPage,
     DishdetailPage,
-    FavoritesPage
+    FavoritesPage,
+    ReservationPage
   ],
   imports: [
     BrowserModule,
@@ -45,7 +47,8 @@ import { FavoritesPage } from '../pages/favorites/favorites';
     MenuPage,
     ContactPage,
     DishdetailPage,
-    FavoritesPage
+    FavoritesPage,
+    ReservationPage
   ],
   providers: [
     StatusBar,

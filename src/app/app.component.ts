@@ -1,5 +1,4 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -8,6 +7,8 @@ import { ListPage } from '../pages/list/list';
 import { AboutPage } from '../pages/about/about';
 import { MenuPage } from '../pages/menu/menu';
 import { ContactPage } from '../pages/contact/contact';
+import { Nav, Platform, ModalController } from 'ionic-angular';
+import { ReservationPage } from '../pages/reservation/reservation';
 
 @Component({
   templateUrl: 'app.html'
@@ -19,8 +20,8 @@ export class MyApp {
 
   pages: Array<{title: string, icon: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
-    this.initializeApp();
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,
+    public modalCtrl: ModalController) {
 
     // used for an example of ngFor and navigation
     this.pages = [
@@ -32,6 +33,11 @@ export class MyApp {
 
   }
 
+  openReserve() {
+
+    let modal = this.modalCtrl.create(ReservationPage);
+    modal.present();
+  }
   initializeApp() {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
